@@ -1,0 +1,32 @@
+{
+  "china": {
+    "hangzhou": {
+      "item": "1"
+    },
+    "shanghai": {
+      "item": "2"
+    },
+    "chengdu": {
+      "item": "3"
+    }
+  },
+  "America": {
+    "aa": {
+      "item": "1"
+    },
+    "bb": {
+      "item": "2"
+    }
+  },
+  "Spain": {
+    "dd": {
+      "item": "1"
+    },
+    "ee": {
+      "item": "2"
+    },
+    "ff": {
+      "item": "3"
+    }
+  }
+}

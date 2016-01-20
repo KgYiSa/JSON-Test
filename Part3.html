@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script type="text/javascript">
+    var value2 = {
+        "china": [
+            {"name": "hangzhou", "item": "1"},
+            {"name": "shanghai", "item": "2"},
+            {"name": "sichuan", "item": "3"}
+        ],
+
+        "America": [
+            {"name": "aa", "item": "12"},
+            {"name": "bb", "item": "2"}
+        ],
+        "Spain": [
+            {"name": "cc", "item": "1"},
+            {"name": "dd", "item": "23"},
+            {"name": "ee", "item": "3"}
+        ]
+    };
+
+    for (var countryObj in value2) {
+        document.write(countryObj + ":<br />")
+        //document.write("  " + value2[countryObj].length);
+        for (var i = 0; i < value2[countryObj].length; i++) {
+            document.write("  " + value2[countryObj][i]["name"] + "<br />");
+        }
+    }
+</script>
+</body>
+</html>

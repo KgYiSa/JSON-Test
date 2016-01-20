@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script type="text/javascript">
+    var value = {
+        "china":{
+            "hangzhou":{"item":1},
+            "shanghai":{"item":2},
+            "chengdu":{"item":3}
+        },
+        "America":{
+            "aa":{"item":"1"},
+            "bb":{"item":"2"}
+        },
+        "Spain":{
+            "dd":{"item":"1"},
+            "ee":{"item":"2"},
+            "ff":{"item":"3"}
+        }
+    };
+
+    for(var countryObj in value)
+    {
+        document.write(countryObj + ":<br />")
+        //没用的for(var cityObj in value.countryObj)
+        for(var cityObj in value[countryObj])
+        {
+            document.write('    ' + cityObj + "<br />");
+            for(var itemObj in value[countryObj][cityObj])
+            {
+                document.write("      "+ itemObj +"(:)"+ value[countryObj][cityObj][itemObj] +"<br />")
+            }
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript" src="lib/jquery-2.1.4.min.js"></script>
+</head>
+<body>
+<p id="result"></p>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $.ajax({
+            //请求方式为get
+            type: "get",
+            //json文件位置
+            url: "./resource/user.json",
+            //返回数据格式为json
+            dataType: "json",
+            //请求成功完成后要执行的方法
+            success: function (data) {
+                //使用$.each方法遍历返回的数据data,
+                $.each(data, function (i, item) {
+                    var content = item.name + "," + item.email + "," + item.gender + "," +
+                            item.hobby[0] + "," + item.hobby[1] + "</br>";
+                    $("#result").append(content);
+                })
+            }
+        })
+    });
+</script>
+</body>
+</html>

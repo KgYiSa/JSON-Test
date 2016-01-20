@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript" src="lib/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript">
+        function recycling(w) {
+            var weather;
+            if ((weather in w)) {
+                for (var weather in w) {
+                    console.log("进啦");
+                    recycling(w[weather]);
+                }
+            }
+            else {
+                document.write(w[weather] + "<br>");
+            }
+        }
+        function recycling2(w) {
+            if ('object' == (typeof w)) {
+                for (var w1 in w) {
+                    document.write(w1 + "(::)" + w[w1] + "<br>");
+                }
+            } else {
+
+            }
+        }
+        function recycling3(w) {
+            //判断是否是数组
+            if (Object.prototype.toString().call(w) === '[object Array]') {
+                console.log("是数组");
+                for (var w1 in w) {
+//                    if (w.hasOwnProperty(w1)) {
+//
+//                    }
+                    recycling3(w[w1]);
+                }
+            }
+            //不是数组，
+            else {
+                console.log("不是数组，是对象");
+                for (var w2 in w) {
+                    document.write(w2 + "(:)" + w[w2] + "<br>");
+                }
+            }
+        }
+        function isString(w) {
+            for (var w1 in w) {
+                if ("string" == (typeof w[w1])) {
+                    document.write(w[w1]+"<br>");
+                }else{
+                    isString(w[w1]);
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $.ajax({
+            type: "get",
+            url: "./resource/part1.json",
+            dataType: "json",
+            success: function (data) {
+                isString(data);
+
+                // recycling(data);
+                //recycling3(data);
+                // document.write("<hr>");
+//                for (var weather1 in data) {
+//                    if (data.hasOwnProperty(weather1)) {
+//                        document.write(typeof data[weather1] + " (1) ");
+//                        for (var w2 in data[weather1]) {
+//                            document.write(typeof data[weather1] + " (2) ");
+//                            for (var w3 in data[weather1][w2]) {
+//                                document.write(typeof data[weather1] + " (3) ");
+//                                document.write(data[weather1][w2][w3] + "<br>");
+//                                document.write(typeof data[weather1][w2][w3] + "<br>");
+////                                for(var w4 in data[weather1][w2][w3]){
+////                                    if(data[weather1][w2][w3].hasOwnProperty(w4)){
+////                                        document.write(typeof data[weather1]+" (444) <br>");
+////                                    }
+////
+////                                }
+//                            }
+//                        }
+//                        // recycling2(data[weather1]);
+//                    }
+//
+//                    document.write("<hr>");
+//                }
+            }
+        })
+    });
+</script>
+</body>
+</html>
